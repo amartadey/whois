@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHOIS by Amarta - Advanced Domain Lookup</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <i class="fas fa-globe-americas"></i>
+                <h1>WHOIS by Amarta</h1>
+            </div>
+            <div class="theme-toggle">
+                <i class="fas fa-sun" id="theme-icon"></i>
+            </div>
+        </header>
+
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" placeholder="Enter domain name (e.g., example.com)">
+                <button id="clear-btn" class="icon-btn hidden"><i class="fas fa-times"></i></button>
+            </div>
+            <button id="search-btn">Lookup <i class="fas fa-arrow-right"></i></button>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="whois"><i class="fas fa-id-card"></i> WHOIS</button>
+            <button class="tab-btn" data-tab="dns"><i class="fas fa-server"></i> DNS</button>
+            <button class="tab-btn" data-tab="availability"><i class="fas fa-check-circle"></i> Availability</button>
+            <button class="tab-btn" data-tab="history"><i class="fas fa-history"></i> History</button>
+        </div>
+
+        <div class="tab-content active" id="whois-content">
+            <div id="whois-results" class="results-panel"></div>
+        </div>
+
+        <div class="tab-content" id="dns-content">
+            <div id="dns-results" class="results-panel"></div>
+        </div>
+
+        <div class="tab-content" id="availability-content">
+            <div id="availability-results" class="results-panel"></div>
+        </div>
+
+        <div class="tab-content" id="history-content">
+            <div class="search-history-container">
+                <div class="history-header">
+                    <h3><i class="fas fa-history"></i> Recent Searches</h3>
+                    <button id="clear-history-btn" class="icon-btn"><i class="fas fa-trash"></i></button>
+                </div>
+                <div id="history-list" class="history-list"></div>
+            </div>
+        </div>
+
+        <div id="similar-domains" class="similar-domains-container hidden">
+            <h3><i class="fas fa-layer-group"></i> Similar Domains</h3>
+            <div id="similar-domains-list" class="similar-domains-list"></div>
+        </div>
+
+        <div class="features-container">
+            <div class="feature-card">
+                <i class="fas fa-download"></i>
+                <h3>Export Results</h3>
+                <button id="export-btn" disabled>Download JSON</button>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-share-alt"></i>
+                <h3>Share Results</h3>
+                <button id="share-btn" disabled>Share Data</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <p id="loading-message">Looking up domain information...</p>
+    </div>
+
+    <div id="notification" class="notification hidden">
+        <i class="notification-icon"></i>
+        <p class="notification-message"></p>
+        <button class="notification-close"><i class="fas fa-times"></i></button>
+    </div>
+
+    <footer class="app-footer">
+        <p>Powered by WhoisXML API | <a href="#" id="about-link">About</a> | <a href="#" id="privacy-link">Privacy</a></p>
+    </footer>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Title</h2>
+                <button id="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="modal-body">
+                <!-- Modal content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
